@@ -1,0 +1,26 @@
+int function(int a, int b)  //定义函数
+{
+	int i,cnt=0,p,q,r,sum=0,count=0;
+	if(a<100)
+		a=100; //如果位数小于三，就让它从三位数第一位100开始
+	for(i=a;i<=b;i++){
+		q=i;//赋值，等会i还要用
+		r=i;//同上
+		while(q!=0){
+			p=q%10;
+			cnt++;
+			q/=10;
+		} //求出该数的位数，以便作为次数
+		while(r!=0){
+			p=r%10;
+			sum+=pow(p,cnt); //懂得都懂
+			r/=10; 
+		}
+		if(sum==i){
+			count++;  //相等那此区间上水仙花数数量就加一
+		}
+		sum=0; //归零，归零，归零
+		cnt=0; //归零，归零，归零
+	}
+	return count;
+}
